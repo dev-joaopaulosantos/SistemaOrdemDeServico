@@ -2,7 +2,7 @@
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Sistema de Ordem de Serviço <?php echo date('Y') ?> | By João Paulo Santos</span>
         </div>
     </div>
 </footer>
@@ -47,6 +47,14 @@
 
 <!-- Custom scripts for all pages-->
 <script src=" <?php echo base_url('public/js/sb-admin-2.min.js'); ?> "></script>
+
+<?php 
+    if(isset($scripts)){
+        foreach($scripts as $script){
+            echo '<script src="' . base_url('public/' . $script) . '"></script>';
+        }
+    }
+?>
 
 </body>
 
