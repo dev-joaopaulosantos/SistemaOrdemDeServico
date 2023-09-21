@@ -16,10 +16,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
       <nav aria-label="breadcrumb">
          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href=" <?php echo base_url()?> ">Home</a></li>
+            <li class="breadcrumb-item"><a href=" <?php echo base_url() ?> ">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page"><?php echo $title ?></li>
          </ol>
       </nav>
+
+      <?php if ($message = $this->session->flashdata('error')) : ?>
+
+         <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <span><i class="fas fa-exclamation-triangle"> </i> <?php echo $message ?> </span>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+
+      <?php endif; ?>
+
 
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
@@ -47,7 +59,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                            <td><?php echo $user->email ?></td>
                            <td><?php echo $user->active ?></td>
                            <td class="text-right">
-                              <a href="" title="Editar" class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i></a>
+                              <a href=" <?php echo base_url('users/edit/' . $user->id) ?> " title="Editar" class="btn btn-sm btn-primary"><i class="fas fa-user-edit"></i></a>
                               <a href="" title="Excluir" class="btn btn-sm btn-danger"><i class="fas fa-user-times"></i></a>
                            </td>
                         </tr>
